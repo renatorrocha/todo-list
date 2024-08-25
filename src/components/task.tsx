@@ -9,11 +9,11 @@ interface ITask {
 
 export default function Task({ task, onDeleteFn, onToggleDoneFn }: ITask) {
     function handleDeleteTask() {
-        onDeleteFn(task.text);
+        onDeleteFn(task.id);
     }
 
     function handleToggleDone() {
-        onToggleDoneFn(task.text);
+        onToggleDoneFn(task.id);
     }
 
     return (

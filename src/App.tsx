@@ -4,14 +4,15 @@ import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
 export default function App() {
     const [tasks, setTasks] = useState<Task[]>([
-        { text: "Criar esse todo-list.", isDone: true },
+        { text: "Criar esse todo-list.", isDone: true, id: "1" },
     ]);
     const [newTask, setNewTask] = useState("");
 
     function handleCreateNewTask(event: FormEvent) {
         event.preventDefault();
 
-        setTasks([...tasks, { text: newTask, isDone: false }]);
+        const randomId = Date.now().toString();
+        setTasks([...tasks, { text: newTask, isDone: false, id: randomId }]);
         setNewTask("");
     }
 
@@ -24,16 +25,14 @@ export default function App() {
         event.target.setCustomValidity("Esse campo é obrigatório!");
     }
 
-    function deleteTask(taskText: string) {
-        setTasks(tasks.filter((task) => task.text !== taskText));
+    function deleteTask(taskId: string) {
+        setTasks(tasks.filter((task) => task.id !== taskId));
     }
 
-    function handleToggleDone(taskText: string) {
+    function handleToggleDone(taskId: string) {
         setTasks(
             tasks.map((task) =>
-                task.text === taskText
-                    ? { ...task, isDone: !task.isDone }
-                    : task
+                task.id === taskId ? { ...task, isDone: !task.isDone } : task
             )
         );
     }
@@ -101,7 +100,7 @@ export default function App() {
                     <article className="flex flex-col gap-3">
                         {tasks.map((task) => (
                             <Task
-                                key={task.text}
+                                key={task.id}
                                 task={task}
                                 onDeleteFn={deleteTask}
                                 onToggleDoneFn={handleToggleDone}

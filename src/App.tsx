@@ -1,4 +1,4 @@
-import { PlusCircle } from "lucide-react";
+import { ClipboardList, PlusCircle } from "lucide-react";
 import Task from "./components/task";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 
@@ -43,7 +43,7 @@ export default function App() {
     return (
         <main className="flex flex-col items-center max-w-screen-md px-4 m-auto">
             <span className="w-full bg-base-gray-700 h-[194px] -z-20 absolute" />
-            
+
             <div className="flex items-center gap-3 pt-[72px] pb-[54px]">
                 <img src="/src/assets/rocket-icon.svg" alt="" />
 
@@ -90,21 +90,35 @@ export default function App() {
                     <div className="flex items-center gap-2 text-base font-bold">
                         <span className="text-product-purple">Concluídas</span>{" "}
                         <span className="px-2 py-1 rounded-full bg-base-gray-400 text-base-gray-200">
-                            {totalCompletedTasks} de {tasks.length}
+                            {totalCompletedTasks === 0
+                                ? "0"
+                                : `${totalCompletedTasks} de ${tasks.length}`}
                         </span>
                     </div>
                 </header>
 
-                <article className="flex flex-col gap-3">
-                    {tasks.map((task) => (
-                        <Task
-                            key={task.text}
-                            task={task}
-                            onDeleteFn={deleteTask}
-                            onToggleDoneFn={handleToggleDone}
-                        />
-                    ))}
-                </article>
+                {tasks.length > 0 ? (
+                    <article className="flex flex-col gap-3">
+                        {tasks.map((task) => (
+                            <Task
+                                key={task.text}
+                                task={task}
+                                onDeleteFn={deleteTask}
+                                onToggleDoneFn={handleToggleDone}
+                            />
+                        ))}
+                    </article>
+                ) : (
+                    <article className="flex flex-col items-center justify-center gap-4 text-base-gray-300">
+                        <ClipboardList className="size-14" />
+                        <p className="text-lg font-bold text-center">
+                            Você ainda não tem tarefas cadastradas
+                            <p className="font-normal">
+                                Crie tarefas e organize seus itens a fazer
+                            </p>
+                        </p>
+                    </article>
+                )}
             </div>
         </main>
     );

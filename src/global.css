@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    line-height: 140%;
+    font-family: "Inter", sans-serif;
+}

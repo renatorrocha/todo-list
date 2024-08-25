@@ -1,50 +1,24 @@
-# React + TypeScript + Vite
+# To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple **to-do list** application built with React. The main objective of this project is to reinforce core concepts of React, including state management, immutability, list and key handling, props, and componentization.
 
-Currently, two official plugins are available:
+## ScreenShot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Application Screenshot](project-screenshot.png)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+-   **Add a new task**: Users can create new tasks and add them to their list.
+-   **Mark and unmark tasks as completed**: Users can toggle tasks between completed and not completed states.
+-   **Remove tasks from the list**: Users can delete tasks from their list when they are no longer needed.
+-   **Show task completion progress**: The application displays the number of tasks completed out of the total tasks.
 
-- Configure the top-level `parserOptions` property like this:
+## Concepts Reinforced
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+While developing this project, the following concepts are reinforced:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+-   **State**: Managing the state of the application to keep track of tasks and their status.
+-   **Immutability**: Ensuring that the state is not directly mutated but instead updated in an immutable manner.
+-   **Lists and Keys in React**: Rendering lists of tasks and handling unique keys for each task to optimize rendering.
+-   **Props**: Passing data and functions to components to manage interactions and state changes.
+-   **Componentization**: Breaking down the UI into reusable components to make the code modular and easier to maintain.

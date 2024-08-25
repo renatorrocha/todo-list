@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+body {
     line-height: 140%;
     font-family: "Inter", sans-serif;
+    font-size: 0.875rem;
+    background-color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    color: #f2f2f2;
+}
+
+:focus {
+    outline: transparent;
 }

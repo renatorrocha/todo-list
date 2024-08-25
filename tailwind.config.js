@@ -38,5 +38,5 @@ export default {
             lg: "1rem",
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
 };

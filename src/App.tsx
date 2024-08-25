@@ -41,7 +41,9 @@ export default function App() {
     const totalCompletedTasks = tasks.filter((task) => task.isDone).length;
 
     return (
-        <main className="flex flex-col items-center max-w-screen-md m-auto">
+        <main className="flex flex-col items-center max-w-screen-md px-4 m-auto">
+            <span className="w-full bg-base-gray-700 h-[194px] -z-20 absolute" />
+            
             <div className="flex items-center gap-3 pt-[72px] pb-[54px]">
                 <img src="/src/assets/rocket-icon.svg" alt="" />
 
